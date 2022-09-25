@@ -44,9 +44,15 @@ class BlogController extends Controller
             'id_user' => $request->input('id_user'),
         ]);
 
+        if ($blog)
+            return \response()->json([
+                'message' => 'blog posted successfully'
+            ], Response::HTTP_CREATED);
+
+
         return \response()->json([
-            'message' => 'blog posted successfully'
-        ], Response::HTTP_CREATED);
+            'message' => 'failed post blog'
+        ], Response::HTTP_BAD_REQUEST);
     }
 
     /**
@@ -70,21 +76,44 @@ class BlogController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $blog = Blog::find($id)->update([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'content' => $request->input('content'),
+            'id_user' => $request->input('id_user'),
+        ]);
+
+        if ($blog)
+            return \response()->json([
+                'message' => 'blog edited successfully'
+            ], Response::HTTP_CREATED);
+
+        return \response()->json([
+            'message' => 'failed edit blog'
+        ], Response::HTTP_BAD_REQUEST);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::find($id)->delete();
+
+        if ($blog)
+            return \response()->json([
+                'message' => 'blog deleted successfully'
+            ], Response::HTTP_CREATED);
+
+        return \response()->json([
+            'message' => 'failed delete blog'
+        ], Response::HTTP_BAD_REQUEST);
     }
 }
