@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('blog');
 });
+
+Route::get('/blog', [WebController::class, 'showHome'])->name('blog');
+Route::get('/blog/{id}', [WebController::class, 'showHomeDetail'])->name('blog.detail');

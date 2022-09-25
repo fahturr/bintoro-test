@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Clean Blog - Start Bootstrap Theme</title>
+    <title>{{ $title }}</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
@@ -38,10 +38,7 @@
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="site-heading">
-                    <h1>Postingan Terbaru</h1>
-                    <span class="subheading">Dapatkan informasi terbaru dari Bintoro Corp Group yaitu Bintoro Interior, Pest, Build, Architects, Clean.</span>
-                </div>
+                @yield('heading')
             </div>
         </div>
     </div>
@@ -61,15 +58,15 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <ul class="list-inline text-center">
                     <li class="list-inline-item">
-                        <a href="#!">
+                        <a href="https://www.instagram.com/bintorocorp/"  target="_blank">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!">
+                        <a href="https://www.facebook.com/bintorocorp" target="_blank">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
@@ -77,10 +74,10 @@
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!">
+                        <a href="https://www.youtube.com/c/bintorocorp" target="_blank">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
